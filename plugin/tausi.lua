@@ -5,7 +5,7 @@ end
 vim.g.loaded_tausi = 1
 
 vim.api.nvim_create_autocmd('UIEnter', {
-  group = vim.api.nvim_create_augroup('tausi', { clear = true }),
+  group = vim.api.nvim_create_augroup('Tausi', { clear = true }),
   callback = function()
     if
         vim.fn.argc() == 0
@@ -17,6 +17,6 @@ vim.api.nvim_create_autocmd('UIEnter', {
   end,
 })
 
-vim.api.nvim_create_user_command('tausi', function()
+vim.api.nvim_create_user_command('Tausi', function()
   require('tausi'):instance()
 end, {})
