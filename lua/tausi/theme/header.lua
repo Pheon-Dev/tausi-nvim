@@ -1,5 +1,5 @@
 local api = vim.api
-local utils = require('dashboard.utils')
+local utils = require('tausi.utils')
 
 local function week_ascii_text()
   return {
@@ -115,14 +115,14 @@ local function generate_header(config)
     api.nvim_buf_set_lines(config.bufnr, 0, -1, false, utils.center_align(header))
 
     for i, _ in ipairs(header) do
-      vim.api.nvim_buf_add_highlight(config.bufnr, 0, 'DashboardHeader', i - 1, 0, -1)
+      vim.api.nvim_buf_add_highlight(config.bufnr, 0, 'TausiHeader', i - 1, 0, -1)
     end
     return
   end
 
   local empty_table = utils.generate_empty_table(config.file_height + 4)
   api.nvim_buf_set_lines(config.bufnr, 0, -1, false, utils.center_align(empty_table))
-  local preview = require('dashboard.preview')
+  local preview = require('tausi.preview')
   preview:open_preview({
     width = config.file_width,
     height = config.file_height,
